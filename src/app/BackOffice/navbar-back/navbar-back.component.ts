@@ -16,6 +16,7 @@ export class NavbarBackComponent implements OnInit{
   ngOnInit(): void {
 
   }
+  id=localStorage.getItem('angular17TokenUserId')
    name = localStorage.getItem('name');
    image = localStorage.getItem('image');
 logout() {

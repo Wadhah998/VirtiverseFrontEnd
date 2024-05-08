@@ -57,7 +57,7 @@ import { ContratLocationlistComponent } from './BackOffice/viewsBack/contratLoca
 import { MaisonlistbackComponent } from './BackOffice/viewsBack/maison/maisonlist/maisonlist.component';
 import { MaisondetailComponent } from './FrontOffice/viewsFront/maison/maisondetail/maisondetail.component';
 import { MaisondetailbackComponent } from './BackOffice/viewsBack/maison/maisondetailback/maisondetailback.component';
-import { NgxBootstrapSliderModule } from 'ngx-bootstrap-slider';
+
 
 
 
@@ -180,7 +180,7 @@ initializeApp(environments.firebase);
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    FullCalendarModule,
+  FullCalendarModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     FormsModule,

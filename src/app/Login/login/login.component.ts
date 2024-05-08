@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from 'src/app/Service/user.service';
 import { Router } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent {
 
 
 
-  constructor(private userSrv: UserService ,private router: Router ) {
+  constructor(private userSrv: UserService ,private router: Router , private snackbar : MatSnackBar ) {
 
   }
 
@@ -29,11 +30,12 @@ export class LoginComponent {
     console.log(this.loginObj);
     this.userSrv.onLogin(this.loginObj).subscribe((res:any)=> {
       console.log(res);
+      this.Snackbar();
    
       if(res.statusCode==200) {
        // localStorage.setItem('angular17TokenData', JSON.stringify(res.data));
        // localStorage.setItem('angular17TokenEmail', res.data.emailId);
-    
+         
        // localStorage.setItem('angular17TokenUserId', res.data.userId);
        console.log(res.token);
        localStorage.setItem('token', JSON.stringify(res.token));
@@ -69,6 +71,13 @@ export class LoginComponent {
       }
     },error=>{
       alert("Wrong Credentials")
+    })
+  }
+
+
+  Snackbar(){
+    this.snackbar.open('login successful','close',{
+      duration :3000
     })
   }
 }
